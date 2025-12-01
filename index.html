@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025 月度出行报告</title>
+  <link rel="stylesheet" href="src/styles.css" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+  <script type="module" src="src/main.js" defer></script>
+</head>
+<body>
+    <div id="app" class="page" v-cloak>
+      <div class="gradient-overlay"></div>
+      <main class="content">
+        <header class="top-bar">
+          <div class="brand-group">
+            <div class="logo" v-for="logo in logos" :key="logo.label">
+              <img :src="logo.src" :alt="logo.label" />
+              <span>{{ logo.label }}</span>
+            </div>
+          </div>
+          <button class="music-btn" aria-label="音乐开关">
+            <span class="icon-music">&#9835;</span>
+          </button>
+        </header>
+
+      <section class="hero">
+        <h1>这是您为<span class="year">{{ reportYear }}</span></h1>
+        <p class="subtitle">写下的市井注脚</p>
+        <div class="metrics">
+          <p>拉上旅单的 <strong>{{ monthlyTrips }}</strong> 个深夜</p>
+          <p>迎光前行的 <strong>{{ scenicSpots }}</strong> 个清晨</p>
+          <p>踏遍 <strong>{{ cityCoverage }}</strong> 个城市</p>
+          <p class="highlight">
+            推动 <strong>{{ cityDepth }}</strong><span>%</span> 神州的足迹
+          </p>
+          <p>所有，都是您舍不得错过的温度</p>
+        </div>
+      </section>
+
+      <div class="cta">
+        <button class="cta-button">上划翻页</button>
+        <div class="swipe-indicator">
+          <span class="arrow">&#x25B2;</span>
+          <span class="arrow">&#x25B2;</span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bottom-bar">
+      <div class="tab" v-for="tab in tabs" :key="tab.label">
+        <span class="tab-icon">{{ tab.icon }}</span>
+        <span class="tab-label">{{ tab.label }}</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
